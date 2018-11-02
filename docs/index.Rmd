@@ -167,4 +167,10 @@ dynamics_dem_var <- integrate_dynamics(x0 = x0, pars = list(H = H, Q = Q, f=f, d
 plot_dynamics(dynamics_dem_var, m)
 ```
 
-The system now exhibits stable dynamics, with the equilibrium abundances slightly perturbed from their previous levels due to the fact that each phenotype has a modified fitness. As expected, the system takes slightly longer to converge to equilibrium, largely driven by the magnitude and variation in demographic rates; and the diversity of the system declines slightly, with one species (green) going extinct due to its relatively high death rate. Thus, phenotypic variation not only stabilizes the dynamics, but it buffers the community against structural perturbations, leading to significant increases in diversity. 
+By adding demographic variation, the diversity of the system declines slightly, with one species (green) going extinct due to its relatively high death rate. Yet the system now exhibits stable dynamics, with the equilibrium abundances slightly perturbed from their previous levels due to the fact that each phenotype has a modified fitness. 
+
+
+Phenotypic variation therefore not only stabilizes the dynamics, but it buffers the community against structural perturbations, leading to significant increases in diversity.
+
+
+
