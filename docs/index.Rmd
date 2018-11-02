@@ -163,8 +163,7 @@ As expected, the diversity of the system declines slightly in the presence of de
 
 ```{r}
 dynamics_uncoupled <-
-	integrate_dynamics(x0 = x0, pars = list(H = H, Q = diag(n_pheno), f=f, d=d), 
-					   int_time=1e5, int_steps=1e3)
+	integrate_dynamics(x0 = x0, pars = list(H = H, Q = diag(n_pheno), f=f, d=d), int_time=1e5, int_steps=1e3)
 plot_dynamics(dynamics_uncoupled, m)
 ```
 
