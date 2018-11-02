@@ -116,7 +116,7 @@ plot_competition_graph_phenotypes(m, H)
 ```
 
 ![](index_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
-
+  
 where an edge connects the dominant phenotype to the loser, and the edge weight stands for the probability of winning.
 
 ### Dynamics

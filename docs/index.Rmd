@@ -102,7 +102,7 @@ The system can also be visualized as a weighted, directed graph:
 ```{r}
 plot_competition_graph_phenotypes(m, H)
 ```
-
+  
 where an edge connects the dominant phenotype to the loser, and the edge weight stands for the probability of winning.
 
 ### Dynamics
