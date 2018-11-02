@@ -140,7 +140,8 @@ plot_dynamics(dynamics, m)
 
 ### Demographic variation
 
-To incorporate demographic variation into the model, we need to specify an additional vector of death ($d$) and fecundity ($f$) rates, here selected from a uniform $\mathcal{U}(0.90,1.10)$ distribution, allowing for $\pm$10% variation in demographic rates:
+To incorporate demographic variation into the model, we need to specify an additional vector of death ($d$) and fecundity ($f$) rates, here selected from a uniform $\mathcal{U}(0.90,1.10)$ distribution, allowing for $\pm 10$% variation in demographic rates:
+
 ```{r}
 f <- runif(n_pheno, 0.9,1.1)
 d <- runif(n_pheno, 0.9,1.1)

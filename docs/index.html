@@ -403,7 +403,7 @@ plot_dynamics(dynamics, m)</code></pre>
 </section>
 <section id="demographic-variation" class="level3">
 <h3>Demographic variation</h3>
-<p>To incorporate demographic variation into the model, we need to specify an additional vector of death (<span class="math inline">\(d\)</span>) and fecundity (<span class="math inline">\(f\)</span>) rates, here selected from a uniform <span class="math inline">\(\mathcal{U}(0.90,1.10)\)</span> distribution, allowing for $$10% variation in demographic rates:</p>
+<p>To incorporate demographic variation into the model, we need to specify an additional vector of death (<span class="math inline">\(d\)</span>) and fecundity (<span class="math inline">\(f\)</span>) rates, here selected from a uniform <span class="math inline">\(\mathcal{U}(0.90,1.10)\)</span> distribution, allowing for <span class="math inline">\(\pm 10\)</span>% variation in demographic rates:</p>
 <pre class="r"><code>f &lt;- runif(n_pheno, 0.9,1.1)
 d &lt;- runif(n_pheno, 0.9,1.1)
 
