@@ -62,7 +62,7 @@ set.seed(18)
 
 Then, we can load the functions for building the competitive network:
 ```{r}
-source("../network_construction.R")
+source("../code/network_construction.R")
 ```
 
 As described in the manuscript, to parameterize our system, we have to choose:
@@ -85,7 +85,7 @@ H <- construct_matrix_H(m, tau)
 
 To visualize the matrix $H$, load the plotting functions:
 ```{r}
-source("../plotting.R")
+source("../code/plotting.R")
 plot_matrix_H(m, H)
 ```
 
@@ -111,7 +111,7 @@ Having set up the community, we can choose initial conditions and integrate the 
 n_pheno <- sum(m) # total number of phenotypes
 x0 <- runif(n_pheno) # random initial conditions
 x0 <- x0 / sum(x0) # put on the simplex
-source("../dynamics.R") # functions to integrate numerically
+source("../code/dynamics.R") # functions to integrate numerically
 dynamics <- integrate_dynamics(x0 = x0, pars = list(H = H, Q = Q))
 plot_dynamics(dynamics, m) # plot time evolution of the relative abundance of each phenotype
 ```
