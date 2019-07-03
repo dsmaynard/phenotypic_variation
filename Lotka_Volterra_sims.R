@@ -3,8 +3,6 @@ library(tidyverse)
 library(deSolve)
 library(rootSolve)
 
-# number of simulations for each parameter combination
-sim_each <- 1000
 # sequence of rho values 
 rhoseq <- sort(c(seq(0,1,length=25),0.999))
 # sequence of p values
@@ -149,7 +147,7 @@ LV_Q<- function(time, x, params){
 }
 
 # output matrix
-res_mat <- matrix(NA, nrow=nrow(sim_opts), ncol=4)
+res_mat <- matrix(NA, nrow=nrow(sim_opts), ncol=5)
 
 # loop through all the simulation configurations
 for(ii in 1:nrow(sim_opts)){
@@ -194,7 +192,7 @@ for(ii in 1:nrow(sim_opts)){
   m <- as.numeric(table(ph_alive$sp))
   n <- length(m)
   # initialize summary stats
-  lam1 <- NA
+  lam1 <- n_dead <- NA
   
   if(any(as.numeric(LV_Q(time = 0, x = xs0, params = list(r=r, A=A, Q=Q, d=d, THRESH = 1e-9))[[1]])>1e-8)){
     
@@ -218,19 +216,15 @@ for(ii in 1:nrow(sim_opts)){
     m <- as.numeric(table(ph_alive$sp))
     n <- length(m)
     # initialize summary stats
-    lam1 <- NA
+    lam1 <- n_dead <- NA
   }
   
   # if more than 2 species, perturb the parameters and integrate
   if(n>=2){
-    
-    
     ############# Jacobian stability
     J <- jacobian.full(xs0, func = LV_Q, time=0, parms = list(r=r, A=A, Q=Q, THRESH = 1e-9))
     # get max real eigen
-    lam1 <- max(Re(eigen(J)$values))
-    
-    
+    lam1 <- max(Re(eigen(J)$values))   
     
     ### survival after pertubation
     r1 <- r*(rep(runif(n,1-pertval, 1+pertval),m)*sim_opts$rho[ii]+runif(length(r),1-pertval, 1+pertval)*(1-sim_opts$rho[ii]))
@@ -243,6 +237,5 @@ for(ii in 1:nrow(sim_opts)){
     n_dead <- n-length(unique(rep(1:n,m)[xs2>THRESH]))
     
   }
-  
   res_mat[ii,] <- c(n0, m0, n, lam1, n_dead)
 }
