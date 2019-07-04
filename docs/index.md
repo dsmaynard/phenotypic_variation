@@ -1,6 +1,5 @@
 ---
 title: "Phenotypic variability promotes diversity and stability in competitive communities"
-author: "Daniel S. Maynard, Carlos A. Serván, José A. Capitán, Stefano Allesina"
 highlighter: prettify
 output:
   html_document: 
@@ -8,7 +7,6 @@ output:
   pdf_document: default
 mode: selfcontained
 hitheme: twitter-bootstrap
-subtitle: Code accompanying the manuscript
 assets:
   css:
   - http://fonts.googleapis.com/css?family=Raleway:300
@@ -39,6 +37,14 @@ g-table-intro h4 {
   text-indent: 0px;
 }
 </style>
+
+Daniel S. Maynard, Carlos A. Serván, José A. Capitán, Stefano Allesina
+
+*Ecology Letters*, In press
+
+### Overview
+
+In this example, we use the zero-sum replicator equation as the base model, demonstrating how phenotypic variation stabilizes the dynamics and insulates the communities against demographic perturbations. Please see the file `Lotka_Volterra_dynamics.R` in the `code` folder for the corresponding generalized Lotka Volterra simulations.
 
 ### Package requirements
 
@@ -127,7 +133,7 @@ Having set up the community, we can choose initial conditions and integrate the 
 n_pheno <- sum(m) # total number of phenotypes
 x0 <- runif(n_pheno) # random initial conditions
 x0 <- x0 / sum(x0) # put on the simplex
-source("../code/dynamics.R") # functions to integrate numerically
+source("../code/Replicator_dynamics.R") # functions to integrate numerically
 dynamics <- integrate_dynamics(x0 = x0, pars = list(H = H, Q = Q))
 plot_dynamics(dynamics, m) # plot time evolution of the relative abundance of each phenotype
 ```
