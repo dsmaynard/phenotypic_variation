@@ -1,8 +1,10 @@
 ## Phenotypic variability promotes diversity and stability in competitive communities ##
 
-### **_Ecology Letters_ (2019), 22(11):1776-1786**
+**_Ecology Letters_ (2019), 22(11):1776-1786**
 
 **Daniel S. Maynard, Carlos A. Serván, José A. Capitán, Stefano Allesina**
+
+---
 
 This repository contains code accompanying the [published manuscript](https://onlinelibrary.wiley.com/doi/full/10.1111/ele.13356). 
 
